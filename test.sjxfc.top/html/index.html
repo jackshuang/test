@@ -1,9 +1,599 @@
-<!DOCTYPE html>
+
 <html>
-  <head>
-    <title>双加鑫的网站</title>
-  </head>
-  <body>
-    <h1 style="text-align: center;color:red;">双加鑫的网站正在建设中，我叫双加鑫哈哈哈啊实打实</h1>
-  </body>
+<head>
+    <meta charset="utf-8">
+        <title>首页 - KKys</title>
+
+    <!-- 新 Bootstrap 核心 CSS 文件 -->
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <!-- 可选的Bootstrap主题文件（一般不使用） -->
+    <link href="http://apps.bdimg.com/libs/bootstrap/3.3.0/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- lightbox样式 -->
+    <link rel="stylesheet" href="/blog/css/lightbox.css">
+
+
+    <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.0.0/jquery.min.js"></script>
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+
+    <style>
+        fieldset{padding:.35em .625em .75em;margin:0 2px;border:1px solid silver}
+        legend{width:auto;font-size: 19px;font-style: oblique;color: black}
+        .read_more_button {
+            -moz-box-shadow:inset 0px 0px 26px -41px #ffffff;
+            -webkit-box-shadow:inset 0px 0px 26px -41px #ffffff;
+            box-shadow:inset 0px 0px 26px -41px #ffffff;
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #f5f5f5));
+            background:-moz-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:-webkit-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:-o-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:-ms-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:linear-gradient(to bottom, #f5f5f5 5%, #f5f5f5 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#f5f5f5',GradientType=0);
+            background-color:#f5f5f5;
+            -moz-border-radius:38px;
+            -webkit-border-radius:38px;
+            border-radius:38px;
+            display:inline-block;
+            cursor:pointer;
+            color:#121212;
+            font-family:Times New Roman;
+            font-size:15px;
+            font-style:italic;
+            padding:8px 8px;
+            text-decoration:none;
+            text-shadow:0px 1px 40px #2f6627;
+        }
+        .read_more_button:hover {
+            background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #f5f5f5), color-stop(1, #f5f5f5));
+            background:-moz-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:-webkit-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:-o-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:-ms-linear-gradient(top, #f5f5f5 5%, #f5f5f5 100%);
+            background:linear-gradient(to bottom, #f5f5f5 5%, #f5f5f5 100%);
+            filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5', endColorstr='#f5f5f5',GradientType=0);
+            background-color:#f5f5f5;
+        }
+        .read_more_button:active {
+            position:relative;
+            top:1px;
+        }
+
+    </style>
+</head>
+<body>
+<!-- 顶部导航 -->
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/blog">Ssjx的博客</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</li>
+                <li><a href="/blog">首页</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">分类 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/blog/searchByType/0">学习</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/blog/searchByType/1">生活</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="/blog/searchByType/2">随笔</a></li>
+                    </ul>
+                </li>
+                <li><a href="/blog/album/albumHtml">相册</a></li>
+                <li><a href="#" data-toggle="modal" data-target="#about-modal">关于</a></li>
+                <li><a href="/blog/adminHtml">管理</a></li>
+            </ul>
+            <div style="float: right;">
+                <div class="input-group" style="padding-top: 9px">
+                    <form action="/blog/searchByTitle" method="post">
+                        <input style="font-size:18px;width: 280px" class="form-control" name="titleSearch" placeholder="搜索你感兴趣的内容...">
+                        <button class="btn btn-default" type="submit">
+                            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div><!-- /input-group -->
+            </div><!-- /.row -->
+        </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+
+    <div class="modal fade" id="about-modal" tabindex="-1" role="dialog" aria-labelledby="modal-label"
+         aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span
+                            aria-hidden="true">&times;</span><span class="sr-only">关闭</span></button>
+                    <h4 class="modal-title" id="modal-label">关于</h4>
+                </div>
+                <div class="modal-body">
+                    <div style="text-align: center;padding-top:30px;padding-bottom: 10px">
+                        <p>这是一个分享技术与生活的博客</p>
+                        <img src="/blog/img/1.png" width="100px" height="100px" class="img-circle">
+                        <div style="padding-top: 20px">
+                            <p>
+                                个人微信 ：yaoshengKK
+                            </p>
+                            <p>
+                                个人QQ ：88171985
+                            </p>
+                            <p>
+                                邮箱 ：kkys.china@gmail.com
+                            </p>
+                            <p>
+                                github ：https://github.com/KKys
+                            </p>
+                            <p>
+                                互相学习，共同进步.
+                            </p>
+                        </div>
+                    </div>
+                    <p style="text-align: right">By KKys</p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">了解</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid row">
+    <div class="container table_box col-lg-2" style=""></div>
+    <div class="container table_box col-lg-5" style="padding-left: 68px">
+        <label style="font-size: 16px"><span class="glyphicon glyphicon-list" style="color: gray" aria-hidden="true"></span></label>
+        <span style="font-size: 20px">最新</span>
+        <hr style="border: 1px solid silver">
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/105">[网友测试]hello</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/105" class="read_more_button">read more</a>
+            </div>
+                <div style= "padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;"><p>world</p>
+</div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-11-07 16:33:13</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/105">阅读</a>(60)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/105#comment_id">评论</a>(0)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/104">[网友测试]测试1</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/104" class="read_more_button">read more</a>
+            </div>
+                <div class="row" style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
+                    <div class="col-lg-3 col-sm-3">
+                        <div style="text-align: center;"><a href="/upload/loginlogo1.png" class="thumbnail" data-lightbox="example-1"><img src="/upload/loginlogo1.png" height="140px"></a></div>
+                    </div>
+                    <div class="col-lg-9 col-sm-9" style="font-size: 14px">
+                        <div><p>请输入.测试1</p>
+</div>
+                    </div>
+                </div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-11-03 22:40:09</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/104">阅读</a>(22)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/104#comment_id">评论</a>(0)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/102">分布式学习(8) ---- 分布式网站优化简易总结</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/102" class="read_more_button">read more</a>
+            </div>
+                <div class="row" style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
+                    <div class="col-lg-3 col-sm-3">
+                        <div style="text-align: center;"><a href="/upload/v2-497abd1525b97226440c666aa7a98646_r.jpg" class="thumbnail" data-lightbox="example-1"><img src="/upload/v2-497abd1525b97226440c666aa7a98646_r.jpg" height="140px"></a></div>
+                    </div>
+                    <div class="col-lg-9 col-sm-9" style="font-size: 14px">
+                        <div><p>web前端性能优化</p>
+
+<p>应用服务器性能优化</p>
+
+<p>存储性能优化：</p>
+
+<p>详情请移步知乎专栏：<a href="https://zhuanlan.zhihu.com/p/25324226">知乎专栏</a></p>
+</div>
+                    </div>
+                </div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-03-06 10:03:03</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/102">阅读</a>(416)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/102#comment_id">评论</a>(1)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/86">分布式学习(7) ---- 常见web攻防简易总结</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/86" class="read_more_button">read more</a>
+            </div>
+                <div class="row" style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
+                    <div class="col-lg-3 col-sm-3">
+                        <div style="text-align: center;"><a href="/upload/29.jpg" class="thumbnail" data-lightbox="example-1"><img src="/upload/29.jpg" height="140px"></a></div>
+                    </div>
+                    <div class="col-lg-9 col-sm-9" style="font-size: 14px">
+                        <div><p>各种攻击手段</p>
+
+<p>详情请移步知乎专栏：<a href="https://zhuanlan.zhihu.com/p/25249464">知乎专栏</a></p>
+</div>
+                    </div>
+                </div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-02-19 19:56:50</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/86">阅读</a>(360)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/86#comment_id">评论</a>(0)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/85">分布式学习(6) ---- 深入kafka生产消费模型</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/85" class="read_more_button">read more</a>
+            </div>
+                <div class="row" style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
+                    <div class="col-lg-3 col-sm-3">
+                        <div style="text-align: center;"><a href="/upload/28.jpg" class="thumbnail" data-lightbox="example-1"><img src="/upload/28.jpg" height="140px"></a></div>
+                    </div>
+                    <div class="col-lg-9 col-sm-9" style="font-size: 14px">
+                        <div><p>生产者详解如下：</p>
+
+<p>详情请移步知乎专栏：<a href="https://zhuanlan.zhihu.com/p/25227580">知乎专栏</a></p>
+</div>
+                    </div>
+                </div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-02-19 19:55:49</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/85">阅读</a>(254)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/85#comment_id">评论</a>(2)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/84">分布式学习(5) ---- 初识消息系统kafka</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/84" class="read_more_button">read more</a>
+            </div>
+                <div class="row" style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
+                    <div class="col-lg-3 col-sm-3">
+                        <div style="text-align: center;"><a href="/upload/27.jpg" class="thumbnail" data-lightbox="example-1"><img src="/upload/27.jpg" height="140px"></a></div>
+                    </div>
+                    <div class="col-lg-9 col-sm-9" style="font-size: 14px">
+                        <div><p>消息系统在分布式应用中有着不可或缺的地位，像是成产消费数据解耦，缓存未处理的消息等等。</p>
+
+<p>那为什么不学习用Java写的ActiveMQ或RabbitMQ呢？</p>
+
+<p>因为我看过卡夫卡写的变形记。</p>
+
+<p>详情请移步知乎专栏：<a href="https://zhuanlan.zhihu.com/p/25212966">知乎专栏</a></p>
+</div>
+                    </div>
+                </div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-02-19 19:54:49</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/84">阅读</a>(101)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/84#comment_id">评论</a>(0)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/83">分布式学习(4) ---- Spring Session + Redis实现分布式Session共享</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/83" class="read_more_button">read more</a>
+            </div>
+                <div class="row" style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
+                    <div class="col-lg-3 col-sm-3">
+                        <div style="text-align: center;"><a href="/upload/26.jpg" class="thumbnail" data-lightbox="example-1"><img src="/upload/26.jpg" height="140px"></a></div>
+                    </div>
+                    <div class="col-lg-9 col-sm-9" style="font-size: 14px">
+                        <div><p>单个服务器的应用，Tomcat会将Session保存在本机内存中，但一旦涉及到分布式应用，如何实现不同服务器间的Session共享问题呢？</p>
+
+<p>详情请移步知乎专栏：<a href="https://zhuanlan.zhihu.com/p/25010950">知乎专栏</a></p>
+</div>
+                    </div>
+                </div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-02-19 19:53:52</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/83">阅读</a>(218)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/83#comment_id">评论</a>(6)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+            <div class="inline">
+                <a style="font-size:25px;text-decoration:none;" href="/blog/detail/82">分布式学习(3) ---- 初识Nginx</a>
+                <a style="float: right;text-decoration:none;" href="/blog/detail/82" class="read_more_button">read more</a>
+            </div>
+                <div class="row" style="padding-top: 12px;font-size:12px;height: 160px;overflow: hidden;">
+                    <div class="col-lg-3 col-sm-3">
+                        <div style="text-align: center;"><a href="/upload/25.jpg" class="thumbnail" data-lightbox="example-1"><img src="/upload/25.jpg" height="140px"></a></div>
+                    </div>
+                    <div class="col-lg-9 col-sm-9" style="font-size: 14px">
+                        <div><p>Nginx两大作用：1.轻量web容器 2.反向代理服务器。</p>
+
+<p>在Java领域中，Nginx更多的被用作在前端提供负载均衡的反向代理服务。</p>
+
+<p>所以本文仅简要介绍下反向代理概念和负载均衡的实现。</p>
+
+<p>详情请移步知乎专栏：<a href="https://zhuanlan.zhihu.com/p/25102281">知乎专栏</a></p>
+</div>
+                    </div>
+                </div>
+            <div style="text-align: right">
+                <label style="font-size: 12px;float: left">2017-02-19 19:52:09</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-eye-open" style="color: gray" aria-hidden="true"></span> <a style="text-decoration:none;" href="/blog/detail/82">阅读</a>(117)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-edit" style="color: gray" aria-hidden="true"></span>  <a style="text-decoration:none;" href="/blog/detail/82#comment_id">评论</a>(1)</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <label style="font-size: 12px;width: 70px;text-align: left"><span class="glyphicon glyphicon-thumbs-up" style="color: gray" aria-hidden="true"></span>  推荐(0)</label>
+            </div>
+            <hr>
+        <!-- 分页 -->
+        <nav style="text-align: center">
+
+    <ul class="pagination">
+            <li>
+                <a aria-label="Previous">
+                <span class="disabled" aria-hidden="true">&laquo;</span>
+                </a>
+            </li>
+
+                    <li><a style="color: #000000">1</a></li>
+                        <li><a href="/blog/2">2</a><li>
+                        <li><a href="/blog/3">3</a><li>
+
+            <li>
+                <a href="/blog/2" aria-label="Next">
+                    <span aria-hidden="true">&raquo;</span>
+                </a>
+            </li>
+    </ul>
+        </nav>
+    </div>
+    <div class="container col-lg-3" style="padding-left: 90px;padding-right: 60px">
+        <div>
+            <legend>最新照片</legend>
+            <!-- 广告轮播 -->
+            <div id="ad-carousel" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#ad-carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#ad-carousel" data-slide-to="1"></li>
+                    <li data-target="#ad-carousel" data-slide-to="2"></li>
+                    <li data-target="#ad-carousel" data-slide-to="3"></li>
+                    <li data-target="#ad-carousel" data-slide-to="4"></li>
+                </ol>
+                <div class="carousel-inner">
+                            <div class="item active">
+                                <a href="/upload/213.jpg" data-lightbox="example-set">
+                                    <img src="/upload/213.jpg" class="center-block" height="240px" style="height: 240px">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="/upload/5.jpg" data-lightbox="example-set">
+                                    <img src="/upload/5.jpg" class="center-block" height="240px" style="height: 240px">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="/upload/21.jpg" data-lightbox="example-set">
+                                    <img src="/upload/21.jpg" class="center-block" height="240px" style="height: 240px">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="/upload/20.jpg" data-lightbox="example-set">
+                                    <img src="/upload/20.jpg" class="center-block" height="240px" style="height: 240px">
+                                </a>
+                            </div>
+                            <div class="item">
+                                <a href="/upload/19.jpg" data-lightbox="example-set">
+                                    <img src="/upload/19.jpg" class="center-block" height="240px" style="height: 240px">
+                                </a>
+                            </div>
+                </div>
+                <a class="left carousel-control" href="#ad-carousel" data-slide="prev"><span
+                        class="glyphicon glyphicon-chevron-left"></span></a>
+                <a class="right carousel-control" href="#ad-carousel" data-slide="next"><span
+                        class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        <div style="padding-top: 50px">
+        </div>
+            <legend>阅读排行</legend>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">1</span>
+                    <a style="color: slategray" href="/blog/detail/33">
+                           【生活】
+                    Hello World！！！</a>
+                </div>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 17px;width: 27px;color: lightskyblue;background-color: snow">2</span>
+                    <a style="color: slategray" href="/blog/detail/40">
+                           【生活】
+                    又是一年开学时</a>
+                </div>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 14px;width: 27px;color: lightskyblue;background-color: snow">3</span>
+                    <a style="color: slategray" href="/blog/detail/69">
+                        【学习】
+                    Java爬虫抓取知乎20万用户信息并做简易分析</a>
+                </div>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">4</span>
+                    <a style="color: slategray" href="/blog/detail/39">
+                        【学习】
+                    阿里中间件比赛回顾</a>
+                </div>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">5</span>
+                    <a style="color: slategray" href="/blog/detail/46">
+                        【学习】
+                    JFinal+ajaxFileUpload实现异步上传图片</a>
+                </div>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">6</span>
+                    <a style="color: slategray" href="/blog/detail/63">
+                                【杂记】
+                    更新后台展示及测试页面</a>
+                </div>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">7</span>
+                    <a style="color: slategray" href="/blog/detail/102">
+                        【学习】
+                    分布式学习(8) ---- 分布式网站优化简易总结</a>
+                </div>
+                <div style="padding-bottom: 7px;padding-left: 10px">
+                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">8</span>
+                    <a style="color: slategray" href="/blog/detail/65">
+                        【学习】
+                    [网友测试] hello</a>
+                </div>
+        </div>
+        <div style="padding-top: 50px">
+                <legend>评论排行</legend>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                            <span class="badge" style="font-size: 20px;width: 27px;color: lightskyblue;background-color: snow">1</span>
+                        <a style="color: slategray" href="/blog/detail/65">
+                                【学习】
+                            [网友测试] hello</a>
+                    </div>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                                <span class="badge" style="font-size: 17px;width: 27px;color: lightskyblue;background-color: snow">2</span>
+                        <a style="color: slategray" href="/blog/detail/40">
+                                    【生活】
+                            又是一年开学时</a>
+                    </div>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                                    <span class="badge" style="font-size: 14px;width: 27px;color: lightskyblue;background-color: snow">3</span>
+                        <a style="color: slategray" href="/blog/detail/33">
+                                    【生活】
+                            Hello World！！！</a>
+                    </div>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">4</span>
+                        <a style="color: slategray" href="/blog/detail/46">
+                                【学习】
+                            JFinal+ajaxFileUpload实现异步上传图片</a>
+                    </div>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">5</span>
+                        <a style="color: slategray" href="/blog/detail/83">
+                                【学习】
+                            分布式学习(4) ---- Spring Session + Redis实现分布式Session共享</a>
+                    </div>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">6</span>
+                        <a style="color: slategray" href="/blog/detail/35">
+                                【学习】
+                            freemarker模板引擎知识点回顾</a>
+                    </div>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">7</span>
+                        <a style="color: slategray" href="/blog/detail/73">
+                                【学习】
+                            基于CAS实现SSO单点登录</a>
+                    </div>
+                    <div style="padding-bottom: 7px;padding-left: 10px">
+                                        <span class="badge" style="font-size: 12px;width: 27px;color: lightskyblue;background-color: snow">8</span>
+                        <a style="color: slategray" href="/blog/detail/85">
+                                【学习】
+                            分布式学习(6) ---- 深入kafka生产消费模型</a>
+                    </div>
+        </div>
+        <div style="padding-top: 50px">
+                <legend>最新评论</legend>
+                    <div style="padding-left: 10px;padding-right: 10px">
+                        <a style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block" href="/blog/detail/40"><i>Re：又是一年开学时</i></a>
+                        <div style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
+                            <span style="padding-left: 10px;line-height:150%"><span style="color: gray" class="glyphicon glyphicon-user" aria-hidden="true"></span> 的sad：很不错，简约</span>
+                        </div>
+                        <span style="color:gray">
+                            <i>2017-11-19 15:53:24</i>
+                        </span>
+                    </div>
+                    <hr>
+                    <div style="padding-left: 10px;padding-right: 10px">
+                        <a style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block" href="/blog/detail/65"><i>Re：[网友测试] hello</i></a>
+                        <div style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
+                            <span style="padding-left: 10px;line-height:150%"><span style="color: gray" class="glyphicon glyphicon-user" aria-hidden="true"></span> 木老头儿：yeye
+</span>
+                        </div>
+                        <span style="color:gray">
+                            <i>2017-07-25 22:52:47</i>
+                        </span>
+                    </div>
+                    <hr>
+                    <div style="padding-left: 10px;padding-right: 10px">
+                        <a style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block" href="/blog/detail/83"><i>Re：分布式学习(4) ---- Spring Session + Redis实现分布式Session共享</i></a>
+                        <div style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
+                            <span style="padding-left: 10px;line-height:150%"><span style="color: gray" class="glyphicon glyphicon-user" aria-hidden="true"></span> 1111：ddd</span>
+                        </div>
+                        <span style="color:gray">
+                            <i>2017-06-20 10:36:01</i>
+                        </span>
+                    </div>
+                    <hr>
+                    <div style="padding-left: 10px;padding-right: 10px">
+                        <a style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block" href="/blog/detail/40"><i>Re：又是一年开学时</i></a>
+                        <div style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
+                            <span style="padding-left: 10px;line-height:150%"><span style="color: gray" class="glyphicon glyphicon-user" aria-hidden="true"></span> 1234：11221</span>
+                        </div>
+                        <span style="color:gray">
+                            <i>2017-06-19 15:40:14</i>
+                        </span>
+                    </div>
+                    <hr>
+                    <div style="padding-left: 10px;padding-right: 10px">
+                        <a style="color: gray;font-size: 15px;overflow: hidden;text-overflow:ellipsis;width: 300px;display: block" href="/blog/detail/83"><i>Re：分布式学习(4) ---- Spring Session + Redis实现分布式Session共享</i></a>
+                        <div style="font-size:15px;padding-top: 10px;padding-bottom: 10px">
+                            <span style="padding-left: 10px;line-height:150%"><span style="color: gray" class="glyphicon glyphicon-user" aria-hidden="true"></span> 测试111：aaaa</span>
+                        </div>
+                        <span style="color:gray">
+                            <i>2017-06-15 20:57:55</i>
+                        </span>
+                    </div>
+                    <hr>
+        </div>
+        <div style="padding-top: 30px;">
+            <fieldset>
+                <div><label>当日访问：19 次</label></div>
+                <div><label>历史访问：10608 次</label></div>
+            </fieldset>
+
+        </div>
+    </div>
+    <div class="container col-lg-2"></div>
+</div>
+
+
+
+
+    <div class="container" style="padding-bottom: 50px">
+        <hr style="border: 1px solid silver">
+        <a href="#" style="float: right" data-toggle="modal" data-target="#about-modal">联系我</a>
+        <p>&copy; KKys </p>
+    </div>
+    <script src="/blog/js/lightbox.js"></script>
+</body>
 </html>
+
